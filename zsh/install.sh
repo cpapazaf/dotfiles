@@ -15,4 +15,3 @@ echo "$ZSH" | sudo tee -a /etc/shells
 
 chsh -s $ZSH
 
-zsh
