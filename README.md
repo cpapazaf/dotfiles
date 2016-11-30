@@ -1,7 +1,8 @@
-
-
 ## Prerequisites
 ```sh
-brew install reattach-to-user-namespace
-brew install fzf
+brew install \
+  Caskroom/cask/iterm2
+  fzf
 ```
+
+Configure iterm2 to use zsh 

@@ -1,0 +1,45 @@
+alias e='exit'
+alias d='docker'
+#alias d-start='docker-machine start spiti'
+#alias de='eval "$(docker-machine env spiti)"'
+
+alias dst='docker stop $(docker ps -a -q)'
+alias drm='docker rm $(docker ps -a -q)'
+
+alias cl='clear'
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+
+alias duhere='du -hcs * | sort -rn | head'
+
+#tmux
+alias tmk='tmux kill-session -t'
+alias tm='tmux'
+alias tml='tmux list-sessions'
+alias tma='tmux attach -t'
+
+function co() {
+	local branches branch
+	branches=$(git branch -a) &&
+	branch=$(echo "$branches" | fzf +s +m) &&
+	#git checkout $(echo "$branch" | sed "s/.* //")
+	git checkout $(echo "$branch" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
+}
+
+function go() {
+	local repos repo
+	repos=$(ls ~/Code) &&
+	repo=$(echo "$repos" | fzf +s +m) &&
+	cd ~/Code/$(echo "$repo" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
+}
+
+function kash {
+  kubectl exec -ti $1 bash
+}
+
+function kexec {
+  local NODE=$1
+  shift
+  kubectl exec -ti $NODE -- $*
+}
+
+

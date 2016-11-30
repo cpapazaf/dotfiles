@@ -1,9 +1,13 @@
+export PATH=$PATH:$HOME/.rvm/gems/ruby-2.3.0/bin:$HOME/.rvm/gems/ruby-2.3.0@global/bin:$HOME/.rvm/rubies/ruby-2.3.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.rvm/bin:$HOME/Library/Android/sdk/platform-tools/:$HOME/.rvm/bin:$HOME/Library/Android/sdk/tools
+
+if [ "$TMUX" = "" ]; then tmux; fi
 
 . /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 . /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 setopt prompt_subst
-autoload -Uz vcs_info
+autoload -Uz vcs_info colors && colors
+local returncode="%(?..%{$fg[red]%} %? ↵%{$resetcolor%})"
 zstyle ':vcs_info:*' stagedstr 'M'
 zstyle ':vcs_info:*' unstagedstr 'M'
 zstyle ':vcs_info:*' check-for-changes true
@@ -21,5 +25,7 @@ fi
 
 precmd () { vcs_info }
 #PROMPT='%F{5}[%F{2}%n%F{5}] %F{3}%3~ ${vcs_info_msg_0_} %f%# '
-PROMPT='%F{3}%3~ ${vcs_info_msg_0_} %f%# '
+PROMPT='${returncode} %F{3}%3~ ${vcs_info_msg_0_} %f%# '
 
+
+source ~/.alias
