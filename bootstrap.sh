@@ -12,7 +12,5 @@ cp ./tmux/.tmux/* ~/.tmux/
 echo "Installing and starting zsh"
 source ./zsh/install.sh
 
-echo "Configuring zsh"
-cp ./zsh/.zshrc ~
-
+echo "Sourcing the new zshrc"
 source ~/.zshrc

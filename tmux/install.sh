@@ -1,6 +1,7 @@
 #!/bin/sh
 
-brew install \
-  tmux \
-  reattach-to-user-namespace
-
+if ! [ -f /bin/tmux -o -f /usr/local/bin/tmux ]; then
+    brew install \
+      tmux \
+      reattach-to-user-namespace
+fi
