@@ -1,6 +1,6 @@
 [core]
 
-	excludesfile = <User home>/.gitignore_global
+	excludesfile = /Users/c.papazafeiropoulos/.gitignore_global
 	editor = /usr/bin/vim
 
 [difftool "sourcetree"]
@@ -15,8 +15,8 @@
 
 [user]
 
-	name = 
-	email = 
+	name = Christos Papazafeiropoulos
+	email = c.papazafeiropoulos@klarna.com
 
 [alias]
 
@@ -50,11 +50,7 @@
 	p = !"git pull; git submodule foreach git pull origin master"
 
 	# Clone a repository including all submodules
-	c = clone --recursive
-
-	# Commit all changes
-	ci = commit
-	ca = !git add -A && git commit -av
+	cl = clone --recursive
 
 	# Switch to a branch, creating it if necessary
 	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
