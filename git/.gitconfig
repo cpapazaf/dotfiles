@@ -26,6 +26,7 @@
 	# logs
 	lg = log --color --graph --oneline  --abbrev-commit --date=short
 	lg-branch = log --oneline --no-merges master..
+	np = !"f() { t=`git rev-parse --abbrev-ref HEAD`; git lg origin/$t..$t; }; f"
 
 	# branch
 	br = branch
