@@ -3,9 +3,6 @@ export LANG=en_US.UTF-8
 
 export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.rvm/bin:$HOME/Library/Android/sdk/tools:$HOME/.rvm/gems/ruby-2.3.0/bin:$HOME/.rvm/gems/ruby-2.3.0@global/bin:$HOME/.rvm/rubies/ruby-2.3.0/bin:$HOME/Library/Android/sdk/platform-tools"
 
-export WORKON_HOME=~/.py_virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-
 #source ~/git-completion.bash
 #source ~/.git-prompt.sh
 
