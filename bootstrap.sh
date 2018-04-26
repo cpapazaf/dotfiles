@@ -1,3 +1,9 @@
+echo "install brew"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+echo "install curl and wget"
+brew install curl wget
+
 echo "Installing .alias"
 cp ./alias/.alias ~/.alias
 
@@ -14,3 +20,9 @@ source ./zsh/install.sh
 
 echo "Sourcing the new zshrc"
 source ~/.zshrc
+
+echo "Install Vundle"
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+echo "Place vimrc"
+cp vim/.vimrc ~/.vimrc
