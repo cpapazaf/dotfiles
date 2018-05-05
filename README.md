@@ -1,13 +1,11 @@
 
 ## Install
 ```
-./osz/.macos
-source bootstrap.sh
+./bootstrap.sh
 ```
 
 ## Additional Configurations
 
-Fix the JAVA_HOME
-```bash
-launchctl setenv JAVA_HOME /Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/
-```
+### Iterm
+Go to iTerm2 > Preferences > “General” tab, and in the “Selection” section, check the box which says “Applications in terminal may access clipboard” if it isn’t checked.
+
