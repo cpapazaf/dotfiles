@@ -7,6 +7,14 @@ function is_ubuntu() {
 }
 
 if [[ ! "$(type -P vim)" ]] && is_ubuntu; then
-  e_header "Installing VIM"
+  e_header "Installs Vim"
   sudo apt-get -qq install vim 
+fi
+
+e_header "Configures Vim"
+cp vim/.vimrc ~/.vimrc
+
+if [[ ! -d ~/.vim/bundle/Vundle.vim/ ]]; then
+  e_header "Installs Vundle"
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi

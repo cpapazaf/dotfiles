@@ -31,8 +31,8 @@ if [[ ! "$(type -P zsh)" ]] ; then
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
   echo -e "source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
 
-  wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/z.sh
-  echo -e "source ~/z.sh" >> ~/.zshrc
+  wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/.zsh/z.sh
+  echo -e "source ~/.zsh/z.sh" >> ~/.zshrc
 
   # Install Oh My Zsh if it isn't already there
   if [[ ! -d ~/.oh-my-zsh/ ]]; then

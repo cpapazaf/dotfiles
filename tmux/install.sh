@@ -10,7 +10,7 @@ function is_ubuntu() {
 }
 
 if [[ ! "$(type -P tmux)" ]] ; then
-  e_header "Installing tmux"
+  e_header "Installs tmux"
   if is_ubuntu ; then
     sudo apt-get -qq install tmux
   fi
@@ -22,12 +22,12 @@ if [[ ! "$(type -P tmux)" ]] ; then
   fi
 fi
 
-e_header "Configuring tmux"
+e_header "Configures tmux"
 cp ./tmux/.tmux.conf ~
 mkdir -p ~/.tmux/
 cp ./tmux/.tmux/* ~/.tmux/
 
 if is_osx ; then
-  # appends the osx specific conf
+  e_header "Appends OSX specific tmux conf"
   cat ./osx_tmux_additional_conf.conf >> ~/.tmux.conf
 fi
