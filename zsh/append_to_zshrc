@@ -4,11 +4,7 @@ export LANG=en_US.UTF-8
 source ~/git-completion.bash
 source ~/.git-prompt.sh
 
-
 if [ "$TMUX" = "" ]; then tmux; fi
-
-. /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-. /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 setopt prompt_subst
 autoload -Uz vcs_info colors && colors
