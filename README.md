@@ -1,4 +1,6 @@
 
+Dotfiles for OSX and Ubuntu!
+
 ## Install
 ```
 ./bootstrap.sh
