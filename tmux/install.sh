@@ -29,5 +29,5 @@ cp ./tmux/.tmux/* ~/.tmux/
 
 if is_osx ; then
   e_header "Appends OSX specific tmux conf"
-  cat ./osx_tmux_additional_conf.conf >> ~/.tmux.conf
+  cat ./tmux/osx_tmux_additional_conf.conf >> ~/.tmux.conf
 fi
