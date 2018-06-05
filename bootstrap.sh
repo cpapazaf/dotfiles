@@ -1,5 +1,6 @@
 #!/bin/bash
 
+function e_header() { echo -e "\n\033[1m$@\033[0m"; }
 
 # OS detection
 function is_osx() {
@@ -23,7 +24,7 @@ source ./configure.sh
 if is_osx; then
   which -s brew
   if [[ $? != 0 ]] ; then
-    echo "install brew"
+    e_header "install brew"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
@@ -33,31 +34,31 @@ if is_osx; then
   # Upgrade any already-installed formulae.
   brew upgrade
 
-  echo -n "Configure osx (y/n)? "
+  e_header "Configure osx (y/n)? "
   read answer
   if [ "$answer" != "${answer#[Yy]}" ] ;then
-    echo "Configuring osx"
+    e_header "Configuring osx"
     ./osx/init.sh
   fi
 
-  echo -n "Install formulae (y/n)? "
+  e_header "Install formulae (y/n)? "
   read answer2
   if [ "$answer2" != "${answer2#[Yy]}" ] ;then
-    echo "Installing formulae"
+    e_header "Installing formulae"
     source ./osx/formulae_installer.sh
     install_formulae
   fi
 fi
 
 if is_ubuntu_desktop; then
-  echo "Ubuntu OS Config"
+  e_header "Ubuntu OS Config"
   source ./ubuntu/package_installer.sh
   install_packages
 fi
 
-echo -n "Configure Packages (y/n)? "
+e_header "Configure Packages (y/n)? "
 read answer3
 if [ "$answer3" != "${answer3#[Yy]}" ] ;then
-  echo "Configuring Packages"
+  e_header "Configuring Packages"
   configure_packages
 fi
