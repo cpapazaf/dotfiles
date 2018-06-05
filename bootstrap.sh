@@ -21,41 +21,43 @@ function get_os() {
 source ./configure.sh
 
 if is_osx; then
-	which -s brew
-	if [[ $? != 0 ]] ; then
-	    echo "install brew"
-	    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	fi
+  which -s brew
+  if [[ $? != 0 ]] ; then
+    echo "install brew"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
 
-	# Make sure we’re using the latest Homebrew.
-	brew update
+  # Make sure we’re using the latest Homebrew.
+  brew update
 
-	# Upgrade any already-installed formulae.
-	brew upgrade
+  # Upgrade any already-installed formulae.
+  brew upgrade
 
-	echo -n "Configure osx (y/n)? "
-	read answer
-	if [ "$answer" != "${answer#[Yy]}" ] ;then
-	    echo "Configuring osx"
-	    ./osx/init.sh
-	fi
+  echo -n "Configure osx (y/n)? "
+  read answer
+  if [ "$answer" != "${answer#[Yy]}" ] ;then
+    echo "Configuring osx"
+    ./osx/init.sh
+  fi
 
-	echo -n "Install formulae (y/n)? "
-	read answer2
-	if [ "$answer2" != "${answer2#[Yy]}" ] ;then
-	    echo "Installing formulae"
-	    source ./osx/formulae_installer.sh
-	    install_formulae
-	fi
+  echo -n "Install formulae (y/n)? "
+  read answer2
+  if [ "$answer2" != "${answer2#[Yy]}" ] ;then
+    echo "Installing formulae"
+    source ./osx/formulae_installer.sh
+    install_formulae
+  fi
 fi
 
 if is_ubuntu_desktop; then
- echo "Ubuntu OS Config"
+  echo "Ubuntu OS Config"
+  source ./ubuntu/package_installer.sh
+  install_packages
 fi
 
 echo -n "Configure Packages (y/n)? "
 read answer3
 if [ "$answer3" != "${answer3#[Yy]}" ] ;then
-    echo "Configuring Packages"
-    configure_packages
+  echo "Configuring Packages"
+  configure_packages
 fi
