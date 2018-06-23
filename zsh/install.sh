@@ -37,8 +37,6 @@ if [[ ! "$(type -P zsh)" ]] ; then
   # Install Oh My Zsh if it isn't already there
   if [[ ! -d ~/.oh-my-zsh/ ]]; then
     oh=`sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
-    # fixing the zshrc file
-    cat ./zsh/append_to_zshrc >> ~/.zshrc
   fi
 
   # Set the default shell to zsh
@@ -47,3 +45,14 @@ if [[ ! "$(type -P zsh)" ]] ; then
   fi
 fi
 
+e_header "Configuring ZSH"
+# fixing the zshrc file
+cat ./zsh/append_to_zshrc >> ~/.zshrc
+
+if is_ubuntu ; then
+  cat ./zsh/append_to_zshrc_ubuntu >> ~/.zshrc
+fi
+
+if is_osx ; then
+  cat ./zsh/append_to_zshrc_osx >> ~/.zshrc
+fi
