@@ -20,6 +20,8 @@
 
 [alias]
 
+	po = "!git push -u origin HEAD:$(git rev-parse --abbrev-ref HEAD)"
+
 	# Check commits for a specific file
 	follow = log --follow --oneline --pretty=format:"%h%x09%an%x09%ad%x09%s"
 
