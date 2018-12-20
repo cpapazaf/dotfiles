@@ -27,6 +27,7 @@
 
 	# logs
 	lg = log --color --graph --oneline  --abbrev-commit --date=short --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s'
+	rflg = reflog --color --graph --oneline  --abbrev-commit --date=short --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s'
   	lg-branch = log --color --abbrev-commit --date=short --oneline --no-merges --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s'  master..
 	np = !"f() { t=`git rev-parse --abbrev-ref HEAD`; git lg origin/$t..$t; }; f"
 
