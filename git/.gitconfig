@@ -23,11 +23,11 @@
 	po = "!git push -u origin HEAD:$(git rev-parse --abbrev-ref HEAD)"
 
 	# Check commits for a specific file
-	follow = log --follow --oneline --pretty=format:"%h%x09%an%x09%ad%x09%s"
+	follow = log --follow --oneline --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s'
 
 	# logs
-	lg = log --color --graph --oneline  --abbrev-commit --date=short
-	lg-branch = log --oneline --no-merges master..
+	lg = log --color --graph --oneline  --abbrev-commit --date=short --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s'
+  	lg-branch = log --color --abbrev-commit --date=short --oneline --no-merges --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s'  master..
 	np = !"f() { t=`git rev-parse --abbrev-ref HEAD`; git lg origin/$t..$t; }; f"
 
 	# branch
