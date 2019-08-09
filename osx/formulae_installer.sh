@@ -22,4 +22,5 @@ function install_formulae {
     brew install git-crypt
     brew install git-lfs
     brew install tree
+    brew install jq
 }
