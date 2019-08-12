@@ -10,12 +10,15 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Yggdroot/indentLine'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
 
 " Some settings to enable the theme:
 set number        " Show line numbers
 syntax enable     " Use syntax highlighting
 set background=dark
-" colorscheme solarized
 
 " highlight line
 set cursorline
@@ -27,7 +30,7 @@ match ExtraWhitespace /\s\+$/
 " show tabs
 set list lcs=tab:\|-
 
-" Use 4 spcaes instead of tabs
+" Use 2 spcaes instead of tabs
 filetype plugin indent on
 " show existing tab with 2 spaces width
 set tabstop=2
@@ -36,8 +39,19 @@ set shiftwidth=2
 " On pressing tab, insert 2 spaces
 set expandtab
 set softtabstop=2
+" set the linter for python
+let python_highlight_all=1
 
-" All of your Plugins must be added before the following line
+" NERDTree
+autocmd StdinReadPre * let s:std_in=1
+" - If no file passed
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" - If directory passed
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+" - Close nerdtree if no file is opened
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" ATTENTION: All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -72,3 +86,9 @@ filetype plugin indent on    " required
 com! FJSON %!python -m json.tool
 map <C-a> <esc>ggVG<CR>
 
+" Open nerdtree map
+map <C-m> :NERDTreeToggle<CR>
+
+" Tabs left-right
+map <C-b> :tabp<CR>
+map <C-n> :tabn<CR>

@@ -25,15 +25,6 @@ if [[ ! "$(type -P zsh)" ]] ; then
         zsh-completions
   fi
 
-  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-  echo -e "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
-
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
-  echo -e "source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
-
-  wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/.zsh/z.sh
-  echo -e "source ~/.zsh/z.sh" >> ~/.zshrc
-
   # Install Oh My Zsh if it isn't already there
   if [[ ! -d ~/.oh-my-zsh/ ]]; then
     oh=`sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
@@ -44,6 +35,16 @@ if [[ ! "$(type -P zsh)" ]] ; then
     chsh -s $(which zsh)
   fi
 fi
+
+e_header "Installing Plugins"
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+echo "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+echo "source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
+
+wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/.zsh/z.sh
+echo "source ~/.zsh/z.sh" >> ~/.zshrc
 
 e_header "Configuring ZSH"
 # fixing the zshrc file
