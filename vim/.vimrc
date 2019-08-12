@@ -1,16 +1,16 @@
 set nocompatible              " be iMproved, requireD
 filetype off                  " required
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
 Plugin 'Yggdroot/indentLine'
-Plugin 'vim-syntastic/syntastic'
+Bundle 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
@@ -54,41 +54,41 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " ATTENTION: All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Change folders fast
-"set hidden
-"syntax enable
-"source $VIMRUNTIME/menu.vim
-"set wildmenu
-"set cpo-=<
-"set wcm=<C-Z>
-"map <F4> :emenu <C-Z>
-"nmap <Esc>[5D :bp<CR>
-"nmap <Esc>Od  :bp<CR>
-"nmap <Esc>OD  :bp<CR>
-"nmap <Esc>[5C :bn<CR>
-"nmap <Esc>Oc  :bn<CR>
-"nmap <Esc>OC  :bn<CR>
-"nmap <Esc>[3~ :bd<CR>
-"nmap ZZ :bd<CR>
+"" Do not attach to the maps below cause they will trigger the twice with the targets specified 
+"" Ctrl+I = Tab
+"" Ctrl+J = Newline
+"" Ctrl+M = Enter
+"" Ctrl+[ = Escape
 
 com! FJSON %!python -m json.tool
 map <C-a> <esc>ggVG<CR>
 
 " Open nerdtree map
-map <C-m> :NERDTreeToggle<CR>
+map <C-t> :NERDTreeToggle<CR>
 
 " Tabs left-right
 map <C-b> :tabp<CR>
 map <C-n> :tabn<CR>
+
+" Syntastic Config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+
+
+" python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+

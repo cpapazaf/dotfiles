@@ -23,4 +23,6 @@ function install_formulae {
     brew install git-lfs
     brew install tree
     brew install jq
+    # python3
+    brew install python
 }

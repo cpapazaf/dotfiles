@@ -30,3 +30,4 @@ setopt noincappendhistory
 setopt nosharehistory
 
 source ~/.alias
+

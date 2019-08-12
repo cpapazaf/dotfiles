@@ -18,24 +18,12 @@ function configure_packages {
     e_header "Installs Vim and vimrc"
     source ./vim/install.sh
 
-    if [[ ! "$(type -P git)" ]] ; then
-        ret=`python -c 'import sys; print("%i" % (sys.hexversion<0x03000000))'`
-        if [ $ret -eq 0 ] ;then
-          echo "we require python version <3"
-          exit 111
-        else
-          e_header "python version is <3. Installing pip"
-          curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-          sudo python get-pip.py
-          rm get-pip.py
-        fi
-
-        sudo pip install virtualenv virtualenvwrapper
-    fi
-
     e_header "Installs Tmux"
     source ./tmux/install.sh
 
     e_header "Installs ZSH"
     source ./zsh/install.sh
+
+    e_header "Installs Python modules"
+    source ./python/install.sh
 }
