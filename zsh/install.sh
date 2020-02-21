@@ -49,11 +49,3 @@ echo "source ~/.zsh/z.sh" >> ~/.zshrc
 e_header "Configuring ZSH"
 # fixing the zshrc file
 cat ./zsh/append_to_zshrc >> ~/.zshrc
-
-if is_ubuntu ; then
-  cat ./zsh/append_to_zshrc_ubuntu >> ~/.zshrc
-fi
-
-if is_osx ; then
-  cat ./zsh/append_to_zshrc_osx >> ~/.zshrc
-fi
