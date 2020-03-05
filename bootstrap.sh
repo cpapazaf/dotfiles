@@ -60,5 +60,6 @@ e_header "Configure Packages (y/n)? "
 read answer3
 if [ "$answer3" != "${answer3#[Yy]}" ] ;then
   e_header "Configuring Packages"
+  source ./configure.sh
   configure_packages
 fi

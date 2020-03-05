@@ -9,7 +9,7 @@ function is_ubuntu() {
 
 function e_header() { echo -e "\n\033[1m$@\033[0m"; }
 
-if [[ ! "$(type -P zsh)" ]] ; then
+if [[ ! "$(type zsh)" ]] ; then
   e_header "Installing ZSH"
   if is_ubuntu ; then
     #sudo sh -c "echo 'deb http://download.opensuse.org/repositories/shells:/zsh-users:/zsh-completions/xUbuntu_17.10/ /' > /etc/apt/sources.list.d/shells:zsh-users:zsh-completions.list"
