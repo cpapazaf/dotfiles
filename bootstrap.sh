@@ -25,7 +25,7 @@ if is_osx; then
   which -s brew
   if [[ $? != 0 ]] ; then
     e_header "install brew"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   fi
 
   # Make sure we’re using the latest Homebrew.
