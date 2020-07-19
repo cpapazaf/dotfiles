@@ -31,12 +31,15 @@ setopt noincappendhistory
 setopt nosharehistory
 
 source ~/.alias
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/z.sh
 
 function cd() {
   builtin cd "$@"
 
   if [[ -z "$VIRTUAL_ENV" ]] ; then
-    ## If env folder is found then activate the vitualenv
+    ## If env folder is found then activate the virtualenv
       if [[ -d ./.pyvenv ]] ; then
         source ./.pyvenv/bin/activate
       fi
@@ -50,3 +53,7 @@ function cd() {
       fi
   fi
 }
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
