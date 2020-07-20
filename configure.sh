@@ -7,7 +7,12 @@ function configure_packages {
 
     e_header "Installs Git and Gitconfig"
     source ./git/install.sh
-    cp ./git/.gitconfig ~/.gitconfig
+    temp_file=$(mktemp)
+    cp ./git/.gitconfig ${temp_file}
+    sed -i.bak "s/GITFULLNAME_PLACEHOLDER/$FULLNAME/g" ${temp_file}
+    sed -i.bak "s/GITEMAIL_PLACEHOLDER/$GITMAIL/g" ${temp_file}
+    cp ${temp_file} ~/.gitconfig
+    rm ${temp_file}
     cp ./git/.gitignore_global ~/.gitignore_global
     git config --global core.excludesfile ~/.gitignore_global
 

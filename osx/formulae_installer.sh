@@ -25,4 +25,6 @@ function install_formulae {
     brew install jq
     brew install pyenv
     brew cask install rectangle
+    brew cask install google-chrome
+    brew cask install chromedriver
 }
