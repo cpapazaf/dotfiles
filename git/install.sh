@@ -6,8 +6,7 @@ function is_ubuntu() {
   [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]] || return 1
 }
 
-# If Git is not installed, install it (Ubuntu only, since Git comes standard
-# with recent XCode or CLT)
+# for osx see the formulae installer
 if [[ ! "$(type -P git)" ]] && is_ubuntu; then
   e_header "Installing Git"
   sudo apt-get -qq install git-core

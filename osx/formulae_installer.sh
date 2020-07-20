@@ -18,6 +18,7 @@ function install_formulae {
     brew install binutils
     # install required brew packs
     brew install Caskroom/cask/iterm2 fzf
+    brew install git
     brew install git-crypt
     brew install git-lfs
     brew install tree

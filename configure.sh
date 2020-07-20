@@ -8,6 +8,8 @@ function configure_packages {
     e_header "Installs Git and Gitconfig"
     source ./git/install.sh
     cp ./git/.gitconfig ~/.gitconfig
+    cp ./git/.gitignore_global ~/.gitignore_global
+    git config --global core.excludesfile ~/.gitignore_global
 
     e_header "Installs .alias"
     cp ./alias/.alias ~/.alias
