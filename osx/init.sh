@@ -103,6 +103,9 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
+# show battery percentage
+defaults write com.apple.menuextra.battery ShowPercent -bool true
+
 ###############################################################################
 # SSD-specific tweaks                                                         #
 ###############################################################################
@@ -602,5 +605,9 @@ defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool t
 ###############################################################################
 # Set up my preferred keyboard shortcuts
 # cp -r init/rectangle.json ~/Library/Application\ Support/Rectangle/Shortcuts.json 2> /dev/null
+
+
+# Kill the uiserver to show the changes
+killall SystemUIServer
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."

@@ -27,4 +27,5 @@ function install_formulae {
     brew cask install rectangle
     brew cask install google-chrome
     brew cask install chromedriver
+    brew cask install visual-studio-code
 }
