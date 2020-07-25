@@ -28,4 +28,5 @@ function install_formulae {
     brew cask install google-chrome
     brew cask install chromedriver
     brew cask install visual-studio-code
+    brew cask install keepassxc
 }
