@@ -54,4 +54,5 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
   echo "export ZSH_DISABLE_COMPFIX=true" >> ~/.zshrc
   cat ~/.oh-my-zsh/templates/zshrc.zsh-template >> ~/.zshrc
   cat ./zsh/append_to_zshrc >> ~/.zshrc
+  touch ~/.git_multi_user_config
 fi

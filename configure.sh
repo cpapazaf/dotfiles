@@ -7,8 +7,10 @@ function configure_packages {
 
     e_header "Installs Git and Gitconfig"
     source ./git/install.sh
+    home_dir=$(eval echo ~$USER)
     temp_file=$(mktemp)
     cp ./git/.gitconfig ${temp_file}
+    sed -i.bak "s/USER_HOME_DIR_PATH/$home_dir/g" ${temp_file}
     sed -i.bak "s/GITFULLNAME_PLACEHOLDER/$FULLNAME/g" ${temp_file}
     sed -i.bak "s/GITEMAIL_PLACEHOLDER/$GITMAIL/g" ${temp_file}
     cp ${temp_file} ~/.gitconfig
