@@ -29,4 +29,5 @@ every time you `cd` into a folder with `.git` folder present, the `~/.git_multi_
 
 - if `shims/python3: line 21: /usr/local/Cellar/pyenv/1.2.20/libexec/pyenv: No such file or directory` appears then do `pyenv rehash`
 - if the backtick doesn't work as prefix for tmux then open .tmux.conf, delete the "`" char and type it again.
+- if tmux doesn't work when restarting iterm, then `killall tmux`
 

@@ -54,8 +54,8 @@ function cd() {
   fi
 
   if [ -d ".git" ]; then
-    git config user.name $(git config --global user.name)
-    git config user.email $(git config --global user.email)
+    git config --replace-all user.name $(git config --global user.name)
+    git config --replace-all user.email $(git config --global user.email)
 
     while read line; do
       if [[ $line =~ "^\[.*\]$" ]] ; then
@@ -64,10 +64,9 @@ function cd() {
         new_git_name=${pure_string%:*}
         new_git_email=${pure_string#*:};
       else
-        echo "^$line";
         if [[ $PWD =~ "^$line" ]]; then
-          git config user.name $new_git_name
-          git config user.email $new_git_email
+          git config --replace-all user.name $new_git_name
+          git config --replace-all user.email $new_git_email
         fi
       fi
     done <~/.git_multi_user_config
