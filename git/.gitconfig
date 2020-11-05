@@ -102,5 +102,7 @@
 	contributors = shortlog --summary --numbered
 
 [push]
-
 	default = current
+
+[pull]
+	ff = only

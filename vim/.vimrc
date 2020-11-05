@@ -28,7 +28,7 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
 " show tabs
-set list lcs=tab:\|-
+" set list lcs=tab:\|-
 
 " Use 2 spcaes instead of tabs
 filetype plugin indent on
