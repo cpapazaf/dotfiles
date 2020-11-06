@@ -25,6 +25,14 @@ At first is empty. But you can add something like
 
 every time you `cd` into a folder with `.git` folder present, the `~/.git_multi_user_config` file will be iterated and if a path is matched, then the git config user and email will be set to the new ones. If not, then the global config will be used instead.
 
+## Develop with:
+
+### Python
+
+The proper way to work with python is to create a `.pyvenv` with `python3 -m vevn .pyvenv` in each project. These dotfiles handle the activation and deactivation of the python environment each time you `cd` to the project.
+
+
+
 ## Troubleshooting
 
 - if `shims/python3: line 21: /usr/local/Cellar/pyenv/1.2.20/libexec/pyenv: No such file or directory` appears then do `pyenv rehash`
