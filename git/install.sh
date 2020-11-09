@@ -7,7 +7,7 @@ function is_ubuntu() {
 }
 
 # for osx see the formulae installer
-if [[ ! "$(type -P git)" ]] && is_ubuntu; then
+if is_ubuntu && [[ ! "$(type -P git)" ]] ; then
   e_header "Installing Git"
   sudo apt-get -qq install git-core
 fi

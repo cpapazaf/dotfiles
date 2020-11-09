@@ -9,17 +9,16 @@ function is_ubuntu() {
   [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]] || return 1
 }
 
-if [[ ! "$(type -P tmux)" ]] ; then
-  e_header "Installs tmux"
-  if is_ubuntu ; then
-    sudo apt-get -qq install tmux
-  fi
+e_header "Installs tmux"
 
-  if is_osx; then
-    brew install \
-      tmux \
-      reattach-to-user-namespace
-  fi
+if is_ubuntu && [[ ! "$(type -P tmux)" ]] ; then
+  sudo apt-get -qq install tmux
+fi
+
+if is_osx && [[ ! "$(type tmux)" ]] ; then
+  brew install \
+    tmux \
+    reattach-to-user-namespace
 fi
 
 e_header "Configures tmux"

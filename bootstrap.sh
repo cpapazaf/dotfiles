@@ -21,23 +21,27 @@ function get_os() {
 
 source ./configure.sh
 
-current_fullname=$(git config user.name)
-current_email=$(git config user.email)
+current_fullname=$(git config --global user.name)
+current_email=$(git config --global user.email)
 current_dev_name=$(/usr/libexec/PlistBuddy -c "Print :System:Network:HostNames:LocalHostName" /Library/Preferences/SystemConfiguration/preferences.plist)
+code_folder=~/Code
 
 # gather important info
 read -p "[GIT] Enter fullname [$current_fullname]: " fullname
 read -p "[GIT] Enter email [$current_email]: " gitmail
 read -p "[System] Device name [$current_dev_name]: " devicename
+read -p "[Develop] Which folder do you keep all your code in [$code_folder]: " codefolder
 echo "Verify:"
 echo "[GIT] fullname: ${fullname:=$current_fullname}"
 echo "[GIT] email: ${gitmail:=$current_email}"
 echo "[System] Device name: ${devicename:=$current_dev_name}"
+echo "[Develop] Code folder: ${codefolder:=$code_folder}"
 read -p "Continue? (y/n): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
 
 export FULLNAME="$fullname"
 export GITMAIL="$gitmail"
 export DEVICENAME="$devicename"
+export CODEFOLDER="$codefolder"
 
 if is_osx; then
   which -s brew

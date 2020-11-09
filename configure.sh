@@ -19,7 +19,11 @@ function configure_packages {
     git config --global core.excludesfile ~/.gitignore_global
 
     e_header "Installs .alias"
-    cp ./alias/.alias ~/.alias
+    temp_alias_file=$(mktemp)
+    cp ./alias/.alias ${temp_alias_file}
+    sed -i.bak "s~CODE_DIR_PATH~$CODEFOLDER~g" ${temp_alias_file}
+    cp ${temp_alias_file} ~/.alias
+    rm ${temp_alias_file}
 
     e_header "Installs bash_conf"
     cp ./shell/.bash_config ~/.bash_config

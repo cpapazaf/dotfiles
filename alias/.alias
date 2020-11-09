@@ -1,7 +1,5 @@
 alias e='exit'
 alias d='docker'
-#alias d-start='docker-machine start spiti'
-#alias de='eval "$(docker-machine env spiti)"'
 
 alias dst='docker stop $(docker ps -a -q)'
 alias drm='docker rm $(docker ps -a -q)'
@@ -26,9 +24,9 @@ function co() {
 
 function go() {
 	local repos repo
-	repos=$(ls ~/Code) &&
+	repos=$(ls CODE_DIR_PATH) &&
 	repo=$(echo "$repos" | fzf +s +m) &&
-	cd ~/Code/$(echo "$repo" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
+	cd CODE_DIR_PATH/$(echo "$repo" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
 }
 
 function kash {

@@ -2,7 +2,8 @@
 Dotfiles for OSX and Ubuntu!
 
 ## Install
-```
+
+```bash
 ./bootstrap.sh
 ```
 
@@ -16,7 +17,7 @@ When git is installed from this dotfiles, an additional file in placed in your h
 
 At first is empty. But you can add something like
 
-```
+```bash
 [new_user:new_emai@x.z]
 /my_code_folder/special_repo_to_use_the_config_in_square_brackets_above/*
 [new_user2:new_emai2@x.z]

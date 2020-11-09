@@ -6,7 +6,7 @@ function is_ubuntu() {
   [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]] || return 1
 }
 
-if [[ ! "$(type -P vim)" ]] && is_ubuntu; then
+if is_ubuntu && [[ ! "$(type -P vim)" ]] ; then
   e_header "Installs Vim"
   sudo apt-get -qq install vim 
 fi
