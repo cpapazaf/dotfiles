@@ -10,6 +10,7 @@ Dotfiles for OSX and Ubuntu!
 ## Additional Configurations
 
 - Enable Access to disk for MAC OS 10.14 and later by following this ["link"](https://osxdaily.com/2018/10/09/fix-operation-not-permitted-terminal-error-macos/)
+- Spotlight. To prevent spotlight indexing your code (especially when installing dependencies) it is advised to exclude the folder you keep all the repos in. This is the reason we ask for a folder path at the moment of configuration. These dotfiles will not configure spotlight. Please do it manually through System Preferences->Spotlight->Privacy.
 
 ### Change git config name/email based on directories
 
