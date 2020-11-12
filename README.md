@@ -67,7 +67,7 @@ every time you `cd` into a folder with `.git` folder present, the `~/.git_multi_
 
 ### Python
 
-The proper way to work with python is to create a `.pyvenv` with `python3 -m vevn .pyvenv` in each project. These dotfiles handle the activation and deactivation of the python environment each time you `cd` to the project.
+The proper way to work with python is to create a `.pyvenv | venv | .venv` with `python3 -m vevn [.pyvenv | venv | .venv]` in each project. These dotfiles handle the activation and deactivation of the python environment each time you `cd` to the project. Git is globally configured to ignore the folders.
 
 
 ## Troubleshooting
