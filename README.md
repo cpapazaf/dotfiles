@@ -1,6 +1,18 @@
 
 # Dotfiles for OSX and Ubuntu!
 
+These dotfiles set OSX and Ubuntu up and ready for development!
+
+## Install/Update
+
+Run the command below on your terminal and go through the configuration step by step. The same command is enough for any updates!
+
+```bash
+./bootstrap.sh
+```
+
+## Features
+
 Outstanding packages:
 
 * iterm2
@@ -34,15 +46,8 @@ Configs:
     * chromedriver
     * visual-studio-code
     * keepassxc
-  * Config
-    * Please check osx/init.sh for the OSX system configuration 
-
-
-## Install
-
-```bash
-./bootstrap.sh
-```
+  * osxdefaults
+    * Please check `osx/init.sh` for the OSX system configuration. This script can also run independently. 
 
 ## Additional Configurations
 
