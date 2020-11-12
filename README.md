@@ -8,6 +8,7 @@ Outstanding packages:
 * zsh/oh-my-zsh (with zsh-autosuggestions, zsh-syntax-highlighting, z)
 * vim with custom config and prepared for coding (with syntastic, vim-flake8, nerdtree, vim-nerdtree-tabs)
 * git with helpful aliases
+* python
 
 Configs:
 
