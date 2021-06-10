@@ -62,8 +62,8 @@ function cd() {
   fi
 
   if [ -d ".git" ]; then
-    git config --replace-all user.name $(git config --global user.name)
-    git config --replace-all user.email $(git config --global user.email)
+    git config --replace-all user.name "$(git config --global user.name)"
+    git config --replace-all user.email "$(git config --global user.email)"
 
     while read line; do
       if [[ $line =~ "^\[.*\]$" ]] ; then
