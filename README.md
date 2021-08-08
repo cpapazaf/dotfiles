@@ -61,13 +61,15 @@ When git is installed from this dotfiles, an additional file in placed in your h
 At first is empty. But you can add something like
 
 ```bash
-[new_user:new_emai@x.z]
+[new_user:new_emai@x.z:/Users/user/.ssh/my_id_rsa]
 /my_code_folder/special_repo_to_use_the_config_in_square_brackets_above/*
 [new_user2:new_emai2@x.z]
 /my_code_folder/special_repo_to_use_the_config_in_square_brackets_above/*
 ```
 
 every time you `cd` into a folder with `.git` folder present, the `~/.git_multi_user_config` file will be iterated and if a path is matched, then the local git config user and email will be set to the new ones. If not, then the global config will be used instead.
+
+Notice that an ssh key can be attached to the GIT_SSH_COMMAND env var if passed as 3rd argument.
 
 ## Develop with:
 

@@ -64,17 +64,21 @@ function cd() {
   if [ -d ".git" ]; then
     git config --replace-all user.name "$(git config --global user.name)"
     git config --replace-all user.email "$(git config --global user.email)"
+    # emtpy GIT_SSH_COMMAND will pick ~/.ssh/id_rsa as the default key for remote repos
+    unset GIT_SSH_COMMAND
 
     while read line; do
       if [[ $line =~ "^\[.*\]$" ]] ; then
         after_bracket=${line#*\[};
         pure_string=${after_bracket%\]*};
-        new_git_name=${pure_string%:*}
-        new_git_email=${pure_string#*:};
+        new_git_name=$(echo "$pure_string" | cut -d ":" -f 1);
+        new_git_email=$(echo "$pure_string" | cut -d ":" -f 2);
+        new_git_ssh_key=$(echo "$pure_string" | cut -d ":" -f 3);
       else
         if [[ $PWD =~ "^$line" ]]; then
-          git config --replace-all user.name $new_git_name
-          git config --replace-all user.email $new_git_email
+          git config --replace-all user.name $new_git_name;
+          git config --replace-all user.email $new_git_email;
+          export GIT_SSH_COMMAND="ssh -i $new_git_ssh_key -o IdentitiesOnly=yes";
         fi
       fi
     done <~/.git_multi_user_config
@@ -82,7 +86,7 @@ function cd() {
   fi
 
   if [ -d ".git" ]; then
-    echo "[GIT] user.name: $(git config user.name), user.email: $(git config user.email)"
+    echo "[GIT] user.name: $(git config user.name), user.email: $(git config user.email), git_command: $(echo \"$GIT_SSH_COMMAND\")"
   fi
 
 }
